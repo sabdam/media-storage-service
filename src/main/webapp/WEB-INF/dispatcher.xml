@@ -7,8 +7,20 @@
                 http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd
                 http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
+
   <mvc:annotation-driven/>
   <context:component-scan base-package="com.epam"/>
+  <mvc:resources mapping="/icons/**" location="/WEB-INF/templates/icons/"/>
+
+  <bean id="musicRepository" class="com.epam.repositories.MusicRepository"/>
+  <bean id="musicService" class="com.epam.services.MusicService"/>
+  <bean id="musicFacade" class="com.epam.facades.MusicFacade"/>
+  <bean id="musicAlbumConverter" class="com.epam.converters.MusicAlbumConverter"/>
+
+  <bean id="audioBooksRepository" class="com.epam.repositories.AudioBooksRepository"/>
+  <bean id="audioBooksService" class="com.epam.services.AudioBooksService"/>
+  <bean id="audioBooksFacade" class="com.epam.facades.AudioBooksFacade"/>
+  <bean id="audioBooksAlbumConverter" class="com.epam.converters.AudioBooksAlbumConverter"/>
 
   <bean id="templateResolver" class="org.thymeleaf.spring5.templateresolver.SpringResourceTemplateResolver">
     <property name="prefix" value="/WEB-INF/templates/"/>
